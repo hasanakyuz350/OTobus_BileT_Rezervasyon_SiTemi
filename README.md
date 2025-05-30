@@ -38,10 +38,13 @@ Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otob�
 
 ## ⚙️ Trigger Özelliği
 
-Rezervasyon silindiğinde, ücret `dbkasaTable` tablosuna otomatik olarak eklenir.
-Rezervasyon eklendiğinde, ücret `dbkasaTable` tablosundan otomatik olarak eksilir.
-Rezervasyon silindiğinde, koltuk sayısı `dboTobusTable` tablosuna otomatik olarak eklenir.
-Rezervasyon eklendiğinde, koltuk sayısı `dboTobusTable` tablosundan otomatik olarak silinir
+*Rezervasyon silindiğinde, ücret `dbkasaTable` tablosuna otomatik olarak eklenir.
+
+*Rezervasyon eklendiğinde, ücret `dbkasaTable` tablosundan otomatik olarak eksilir.
+
+*Rezervasyon silindiğinde, koltuk sayısı `dboTobusTable` tablosuna otomatik olarak eklenir.
+
+*Rezervasyon eklendiğinde, koltuk sayısı `dboTobusTable` tablosundan otomatik olarak silinir
 
 ```sql
 TRIGGER: TR_RezervasyonSilinceKasaEkle
