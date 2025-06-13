@@ -11,4 +11,7 @@ C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecT
 C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\obj\Debug\OTobüs_BileT_Rezervasyon_SiTtemi.Form1.resources
 C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\obj\Debug\OTobüs_BileT_Rezervasyon_SiTtemi.Form2.resources
 C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\obj\Debug\OTobüs_BileT_Rezervasyon_SiTtemi.Form3.resources
+C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\bin\Debug\EntityFramework.dll
+C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\bin\Debug\EntityFramework.xml
+C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\obj\Debug\OTob_s_B.C0221E1F.Up2Date
 C:\Users\hasan\OneDrive\OneDrive\Belgeler\Ben\Projeler\Visual STudio IDE ProjecTs\OTobüs_BileT_Rezervasyon_SiTtemi\OTobüs_BileT_Rezervasyon_SiTtemi\obj\Debug\OTobüs_BileT_Rezervasyon_SiTtemi.Form4.resources

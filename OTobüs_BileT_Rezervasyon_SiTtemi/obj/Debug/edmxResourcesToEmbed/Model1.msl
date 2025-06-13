@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OTobüs_BileT_Rezervasyon_SiTtemiModelStoreContainer" CdmEntityContainer="OTobüs_BileT_Rezervasyon_SiTtemiEntities">
+    <EntitySetMapping Name="dberzervasyonTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dberzervasyonTable">
+        <MappingFragment StoreEntitySet="dberzervasyonTable">
+          <ScalarProperty Name="rezervasyonID" ColumnName="rezervasyonID" />
+          <ScalarProperty Name="seferID" ColumnName="seferID" />
+          <ScalarProperty Name="m_ID" ColumnName="m_ID" />
+          <ScalarProperty Name="kolTuknumara" ColumnName="kolTuknumara" />
+          <ScalarProperty Name="ucreT" ColumnName="ucreT" />
+          <ScalarProperty Name="rezervasyonTarihi" ColumnName="rezervasyonTarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbkasaTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dbkasaTable">
+        <MappingFragment StoreEntitySet="dbkasaTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Kasa" ColumnName="Kasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbmusTeriTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dbmusTeriTable">
+        <MappingFragment StoreEntitySet="dbmusTeriTable">
+          <ScalarProperty Name="m_ID" ColumnName="m_ID" />
+          <ScalarProperty Name="m_ad" ColumnName="m_ad" />
+          <ScalarProperty Name="m_soyad" ColumnName="m_soyad" />
+          <ScalarProperty Name="cinsiyeT" ColumnName="cinsiyeT" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="kimlikno" ColumnName="kimlikno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dboTobusTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dboTobusTable">
+        <MappingFragment StoreEntitySet="dboTobusTable">
+          <ScalarProperty Name="busID" ColumnName="busID" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="plaka" ColumnName="plaka" />
+          <ScalarProperty Name="kolTuksayisi" ColumnName="kolTuksayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbseferTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dbseferTable">
+        <MappingFragment StoreEntitySet="dbseferTable">
+          <ScalarProperty Name="seferID" ColumnName="seferID" />
+          <ScalarProperty Name="busID" ColumnName="busID" />
+          <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+          <ScalarProperty Name="daTe" ColumnName="daTe" />
+          <ScalarProperty Name="fiyaT" ColumnName="fiyaT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbsehirTable">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.dbsehirTable">
+        <MappingFragment StoreEntitySet="dbsehirTable">
+          <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+          <ScalarProperty Name="sehir1" ColumnName="sehir1" />
+          <ScalarProperty Name="sehir2" ColumnName="sehir2" />
+          <ScalarProperty Name="mesafe_KM" ColumnName="mesafe_KM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tarihler">
+      <EntityTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Tarihler">
+        <MappingFragment StoreEntitySet="Tarihler">
+          <ScalarProperty Name="daTeID" ColumnName="daTeID" />
+          <ScalarProperty Name="Gun" ColumnName="Gun" />
+          <ScalarProperty Name="Ay" ColumnName="Ay" />
+          <ScalarProperty Name="Yil" ColumnName="Yil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OTobüs_BileT_Rezervasyon_SiTtemiModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -110,9 +110,82 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "01/25",
+            "02/25",
+            "03/25",
+            "04/25",
+            "05/25",
+            "06/25",
+            "07/25",
+            "08/25",
+            "09/25",
+            "10/25",
+            "11/25",
+            "12/25",
+            "01/26",
+            "02/26",
+            "03/26",
+            "04/26",
+            "05/26",
+            "06/26",
+            "07/26",
+            "08/26",
+            "09/26",
+            "10/26",
+            "11/26",
+            "12/26",
+            "01/27",
+            "02/27",
+            "03/27",
+            "04/27",
+            "05/27",
+            "06/27",
+            "07/27",
+            "08/27",
+            "09/27",
+            "10/27",
+            "11/27",
+            "12/27",
+            "01/28",
+            "02/28",
+            "03/28",
+            "04/28",
+            "05/28",
+            "06/28",
+            "07/28",
+            "08/28",
+            "09/28",
+            "10/28",
+            "11/28",
+            "12/28",
+            "01/29",
+            "02/29",
+            "03/29",
+            "04/29",
+            "05/29",
+            "06/29",
+            "07/29",
+            "08/29",
+            "09/29",
+            "10/29",
+            "11/29",
+            "12/29",
+            "01/30",
+            "02/30",
+            "03/30",
+            "04/30",
+            "05/30",
+            "06/30",
+            "07/30",
+            "08/30",
+            "09/30",
+            "10/30",
+            "11/30",
+            "12/30"});
             this.comboBox3.Location = new System.Drawing.Point(168, 72);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(64, 24);
+            this.comboBox3.Size = new System.Drawing.Size(100, 24);
             this.comboBox3.TabIndex = 14;
             // 
             // button4
@@ -128,6 +201,7 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "ÖDEME YAP";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 

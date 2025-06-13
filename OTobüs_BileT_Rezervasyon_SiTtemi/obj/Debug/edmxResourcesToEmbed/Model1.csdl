@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OTobüs_BileT_Rezervasyon_SiTtemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dberzervasyonTable">
+    <Key>
+      <PropertyRef Name="rezervasyonID" />
+    </Key>
+    <Property Name="rezervasyonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="seferID" Type="Int32" />
+    <Property Name="m_ID" Type="Int32" />
+    <Property Name="kolTuknumara" Type="Byte" />
+    <Property Name="ucreT" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="rezervasyonTarihi" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="dbmusTeriTable" Relationship="Self.FK_dberzervasyonTable_dbmusTeriTable" FromRole="dberzervasyonTable" ToRole="dbmusTeriTable" />
+    <NavigationProperty Name="dbseferTable" Relationship="Self.FK_dberzervasyonTable_dbseferTable" FromRole="dberzervasyonTable" ToRole="dbseferTable" />
+  </EntityType>
+  <EntityType Name="dbkasaTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kasa" Type="Decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="dbmusTeriTable">
+    <Key>
+      <PropertyRef Name="m_ID" />
+    </Key>
+    <Property Name="m_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_ad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="m_soyad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cinsiyeT" Type="Boolean" />
+    <Property Name="phone" Type="Byte" />
+    <Property Name="mail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="kimlikno" Type="Byte" />
+    <NavigationProperty Name="dberzervasyonTable" Relationship="Self.FK_dberzervasyonTable_dbmusTeriTable" FromRole="dbmusTeriTable" ToRole="dberzervasyonTable" />
+  </EntityType>
+  <EntityType Name="dboTobusTable">
+    <Key>
+      <PropertyRef Name="busID" />
+    </Key>
+    <Property Name="busID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marka" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="plaka" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="kolTuksayisi" Type="Byte" />
+    <NavigationProperty Name="dbseferTable" Relationship="Self.FK_dbseferTable_dboTobusTable" FromRole="dboTobusTable" ToRole="dbseferTable" />
+  </EntityType>
+  <EntityType Name="dbseferTable">
+    <Key>
+      <PropertyRef Name="seferID" />
+    </Key>
+    <Property Name="seferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="busID" Type="Int32" />
+    <Property Name="sehirID" Type="Int32" />
+    <Property Name="daTe" Type="DateTime" Precision="3" />
+    <Property Name="fiyaT" Type="Decimal" Precision="15" Scale="3" />
+    <NavigationProperty Name="dberzervasyonTable" Relationship="Self.FK_dberzervasyonTable_dbseferTable" FromRole="dbseferTable" ToRole="dberzervasyonTable" />
+    <NavigationProperty Name="dboTobusTable" Relationship="Self.FK_dbseferTable_dboTobusTable" FromRole="dbseferTable" ToRole="dboTobusTable" />
+    <NavigationProperty Name="dbsehirTable" Relationship="Self.FK_dbseferTable_dbsehirTable" FromRole="dbseferTable" ToRole="dbsehirTable" />
+  </EntityType>
+  <EntityType Name="dbsehirTable">
+    <Key>
+      <PropertyRef Name="sehirID" />
+    </Key>
+    <Property Name="sehirID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sehir1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sehir2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mesafe_KM" Type="Int32" />
+    <NavigationProperty Name="dbseferTable" Relationship="Self.FK_dbseferTable_dbsehirTable" FromRole="dbsehirTable" ToRole="dbseferTable" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tarihler">
+    <Key>
+      <PropertyRef Name="daTeID" />
+    </Key>
+    <Property Name="daTeID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gun" Type="Byte" />
+    <Property Name="Ay" Type="Byte" />
+    <Property Name="Yil" Type="Int16" />
+  </EntityType>
+  <Association Name="FK_dberzervasyonTable_dbmusTeriTable">
+    <End Role="dbmusTeriTable" Type="Self.dbmusTeriTable" Multiplicity="0..1" />
+    <End Role="dberzervasyonTable" Type="Self.dberzervasyonTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbmusTeriTable">
+        <PropertyRef Name="m_ID" />
+      </Principal>
+      <Dependent Role="dberzervasyonTable">
+        <PropertyRef Name="m_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dberzervasyonTable_dbseferTable">
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="0..1" />
+    <End Role="dberzervasyonTable" Type="Self.dberzervasyonTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbseferTable">
+        <PropertyRef Name="seferID" />
+      </Principal>
+      <Dependent Role="dberzervasyonTable">
+        <PropertyRef Name="seferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbseferTable_dboTobusTable">
+    <End Role="dboTobusTable" Type="Self.dboTobusTable" Multiplicity="0..1" />
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dboTobusTable">
+        <PropertyRef Name="busID" />
+      </Principal>
+      <Dependent Role="dbseferTable">
+        <PropertyRef Name="busID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbseferTable_dbsehirTable">
+    <End Role="dbsehirTable" Type="Self.dbsehirTable" Multiplicity="0..1" />
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbsehirTable">
+        <PropertyRef Name="sehirID" />
+      </Principal>
+      <Dependent Role="dbseferTable">
+        <PropertyRef Name="sehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OTobüs_BileT_Rezervasyon_SiTtemiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dberzervasyonTable" EntityType="Self.dberzervasyonTable" />
+    <EntitySet Name="dbkasaTable" EntityType="Self.dbkasaTable" />
+    <EntitySet Name="dbmusTeriTable" EntityType="Self.dbmusTeriTable" />
+    <EntitySet Name="dboTobusTable" EntityType="Self.dboTobusTable" />
+    <EntitySet Name="dbseferTable" EntityType="Self.dbseferTable" />
+    <EntitySet Name="dbsehirTable" EntityType="Self.dbsehirTable" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tarihler" EntityType="Self.Tarihler" />
+    <AssociationSet Name="FK_dberzervasyonTable_dbmusTeriTable" Association="Self.FK_dberzervasyonTable_dbmusTeriTable">
+      <End Role="dbmusTeriTable" EntitySet="dbmusTeriTable" />
+      <End Role="dberzervasyonTable" EntitySet="dberzervasyonTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dberzervasyonTable_dbseferTable" Association="Self.FK_dberzervasyonTable_dbseferTable">
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+      <End Role="dberzervasyonTable" EntitySet="dberzervasyonTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbseferTable_dboTobusTable" Association="Self.FK_dbseferTable_dboTobusTable">
+      <End Role="dboTobusTable" EntitySet="dboTobusTable" />
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbseferTable_dbsehirTable" Association="Self.FK_dbseferTable_dbsehirTable">
+      <End Role="dbsehirTable" EntitySet="dbsehirTable" />
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OTobüs_BileT_Rezervasyon_SiTtemiModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OTobüs_BileT_Rezervasyon_SiTtemiModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OTobüs_BileT_Rezervasyon_SiTtemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dberzervasyonTable">
+    <Key>
+      <PropertyRef Name="rezervasyonID" />
+    </Key>
+    <Property Name="rezervasyonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="seferID" Type="int" />
+    <Property Name="m_ID" Type="int" />
+    <Property Name="kolTuknumara" Type="tinyint" />
+    <Property Name="ucreT" Type="money" />
+    <Property Name="rezervasyonTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="dbkasaTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kasa" Type="decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="dbmusTeriTable">
+    <Key>
+      <PropertyRef Name="m_ID" />
+    </Key>
+    <Property Name="m_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_ad" Type="varchar" MaxLength="30" />
+    <Property Name="m_soyad" Type="varchar" MaxLength="30" />
+    <Property Name="cinsiyeT" Type="bit" />
+    <Property Name="phone" Type="tinyint" />
+    <Property Name="mail" Type="nvarchar" MaxLength="30" />
+    <Property Name="kimlikno" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="dboTobusTable">
+    <Key>
+      <PropertyRef Name="busID" />
+    </Key>
+    <Property Name="busID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marka" Type="nvarchar" MaxLength="30" />
+    <Property Name="plaka" Type="varchar" MaxLength="20" />
+    <Property Name="kolTuksayisi" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="dbseferTable">
+    <Key>
+      <PropertyRef Name="seferID" />
+    </Key>
+    <Property Name="seferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="busID" Type="int" />
+    <Property Name="sehirID" Type="int" />
+    <Property Name="daTe" Type="datetime" />
+    <Property Name="fiyaT" Type="decimal" Precision="15" Scale="3" />
+  </EntityType>
+  <EntityType Name="dbsehirTable">
+    <Key>
+      <PropertyRef Name="sehirID" />
+    </Key>
+    <Property Name="sehirID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sehir1" Type="varchar" MaxLength="20" />
+    <Property Name="sehir2" Type="varchar" MaxLength="20" />
+    <Property Name="mesafe_KM" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OTobüs_BileT_Rezervasyon_SiTtemi.dbo.Tarihler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tarihler">
+    <Key>
+      <PropertyRef Name="daTeID" />
+    </Key>
+    <Property Name="daTeID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gun" Type="tinyint" />
+    <Property Name="Ay" Type="tinyint" />
+    <Property Name="Yil" Type="smallint" />
+  </EntityType>
+  <Association Name="FK_dberzervasyonTable_dbmusTeriTable">
+    <End Role="dbmusTeriTable" Type="Self.dbmusTeriTable" Multiplicity="0..1" />
+    <End Role="dberzervasyonTable" Type="Self.dberzervasyonTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbmusTeriTable">
+        <PropertyRef Name="m_ID" />
+      </Principal>
+      <Dependent Role="dberzervasyonTable">
+        <PropertyRef Name="m_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dberzervasyonTable_dbseferTable">
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="0..1" />
+    <End Role="dberzervasyonTable" Type="Self.dberzervasyonTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbseferTable">
+        <PropertyRef Name="seferID" />
+      </Principal>
+      <Dependent Role="dberzervasyonTable">
+        <PropertyRef Name="seferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbseferTable_dboTobusTable">
+    <End Role="dboTobusTable" Type="Self.dboTobusTable" Multiplicity="0..1" />
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dboTobusTable">
+        <PropertyRef Name="busID" />
+      </Principal>
+      <Dependent Role="dbseferTable">
+        <PropertyRef Name="busID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbseferTable_dbsehirTable">
+    <End Role="dbsehirTable" Type="Self.dbsehirTable" Multiplicity="0..1" />
+    <End Role="dbseferTable" Type="Self.dbseferTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbsehirTable">
+        <PropertyRef Name="sehirID" />
+      </Principal>
+      <Dependent Role="dbseferTable">
+        <PropertyRef Name="sehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="OTobüs_BileT_Rezervasyon_SiTtemiModelStoreContainer">
+    <EntitySet Name="dberzervasyonTable" EntityType="Self.dberzervasyonTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dbkasaTable" EntityType="Self.dbkasaTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dbmusTeriTable" EntityType="Self.dbmusTeriTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dboTobusTable" EntityType="Self.dboTobusTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dbseferTable" EntityType="Self.dbseferTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dbsehirTable" EntityType="Self.dbsehirTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tarihler" EntityType="Self.Tarihler" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Tarihler].[daTeID] AS [daTeID], 
+[Tarihler].[Gun] AS [Gun], 
+[Tarihler].[Ay] AS [Ay], 
+[Tarihler].[Yil] AS [Yil]
+FROM [dbo].[Tarihler] AS [Tarihler]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dberzervasyonTable_dbmusTeriTable" Association="Self.FK_dberzervasyonTable_dbmusTeriTable">
+      <End Role="dbmusTeriTable" EntitySet="dbmusTeriTable" />
+      <End Role="dberzervasyonTable" EntitySet="dberzervasyonTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dberzervasyonTable_dbseferTable" Association="Self.FK_dberzervasyonTable_dbseferTable">
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+      <End Role="dberzervasyonTable" EntitySet="dberzervasyonTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbseferTable_dboTobusTable" Association="Self.FK_dbseferTable_dboTobusTable">
+      <End Role="dboTobusTable" EntitySet="dboTobusTable" />
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbseferTable_dbsehirTable" Association="Self.FK_dbseferTable_dbsehirTable">
+      <End Role="dbsehirTable" EntitySet="dbsehirTable" />
+      <End Role="dbseferTable" EntitySet="dbseferTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

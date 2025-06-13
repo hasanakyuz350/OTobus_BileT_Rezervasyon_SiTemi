@@ -145,7 +145,7 @@
             this.textBox10.BackColor = System.Drawing.Color.White;
             this.textBox10.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(222, 180);
+            this.textBox10.Location = new System.Drawing.Point(222, 264);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(100, 22);
@@ -189,7 +189,7 @@
             this.textBox9.BackColor = System.Drawing.Color.White;
             this.textBox9.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(222, 208);
+            this.textBox9.Location = new System.Drawing.Point(222, 236);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(100, 22);
@@ -222,7 +222,7 @@
             this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(222, 236);
+            this.textBox8.Location = new System.Drawing.Point(222, 208);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(100, 22);
@@ -255,7 +255,7 @@
             this.textBox7.BackColor = System.Drawing.Color.White;
             this.textBox7.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(222, 264);
+            this.textBox7.Location = new System.Drawing.Point(222, 180);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(100, 22);
@@ -352,6 +352,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(615, 398);
             this.dataGridView1.TabIndex = 133;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick_1);
             // 
             // panel2
             // 
@@ -393,7 +394,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(265, 413);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(81, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 137;
             this.pictureBox2.TabStop = false;
             // 
@@ -411,6 +412,7 @@
             this.button1.TabIndex = 136;
             this.button1.Text = "İPTAL";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form4
             // 
@@ -430,6 +432,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
