@@ -1,10 +1,10 @@
-# 🚌 Otobüs Bilet Rezervasyon Sistemi
+🚌 Otobüs Bilet Rezervasyon Sistemi
 
 Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otobüs Bilet Rezervasyon Uygulamasıdır**. Kullanıcılar otobüs seferlerini görebilir, koltuk seçimi yapabilir, rezervasyon oluşturabilir ve iptal işlemleri gerçekleştirebilir. Aynı zamanda sistemde kasa takibi de yapılmaktadır.
 
 ---
 
-## 📦 Özellikler
+📦 Özellikler
 
 - **🗺️ İller arası mesafe tablosu (belirli iller)
 - **🚍 Sefer oluşturma ve görüntüleme
@@ -15,7 +15,7 @@ Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otob�
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+🛠️ Kullanılan Teknolojiler
 
 - **C# / .NET Framework**
 - **Windows Forms**
@@ -24,7 +24,7 @@ Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otob�
 
 ---
 
-## 🧰 Veritabanı Yapısı
+🧰 Veritabanı Yapısı
 
 - **`dberzervasyonTable` → Rezervasyon bilgileri
 - **`dbmusTeriTable` → Müşteri kayıtları
@@ -36,7 +36,7 @@ Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otob�
 
 ---
 
-## ⚙️ Trigger Özelliği
+⚙️ Trigger Özelliği
 
 - **Rezervasyon silindiğinde, ücret `dbkasaTable` tablosuna otomatik olarak eklenir.
 
