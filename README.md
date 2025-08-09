@@ -45,10 +45,3 @@ Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilen bir **Otob�
 - **Rezervasyon silindiğinde, koltuk sayısı `dboTobusTable` tablosuna otomatik olarak eklenir.
 
 - **Rezervasyon eklendiğinde, koltuk sayısı `dboTobusTable` tablosundan otomatik olarak silinir
-
-```
-TRIGGER: TR_RezervasyonSilinceKasaEkle
-TRIGGER: TR_RezervasyonYapıncaKasaEkle
-TRIGGER: TR_RezervasyonİptalYapıncaKolTukSayısıArTması
-TRIGGER: TR_RezervasyonYapıncaKolTukSayısıAzalması
-
